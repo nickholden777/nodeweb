@@ -1,0 +1,28 @@
+<% layout('../layout') -%>
+
+<div class="row">
+	<%- partial('../partials/left')%>
+	<div class="col m9 l10">
+		<p class="right-align"><a href="products/new" class="btn btn-green">New product</a></p>
+	</div>
+	<div class="col m9 l10 content">
+		<table class="table">
+			<thead>
+				<th>Name</th>
+				<th>Category</th>
+				<th>URL</th>
+				<th>Price</th>
+			</thead>
+			<tbody>
+			<% data.forEach(function(item){ %>
+				<tr>
+					<td><a href="products/<%=item._id %>"><%=item.name %></a></td>
+					<td><%=item.category %></td>
+					<td><%=item.url %></td>
+					<td><%=item.price %></td>
+				</tr>
+			<% }); %>	
+			</tbody>
+		</table>
+	</div>
+</div>

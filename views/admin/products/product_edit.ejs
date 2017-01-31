@@ -1,0 +1,47 @@
+<% layout('../layout') -%>
+
+<div class="row">
+	<%- partial('../partials/left')%>
+	<div class="col m9 l10 form-create">
+		<form method="POST">
+			<div class="input-field col s12 m6">
+				<input type="text" name="name" placeholder="Name" value="<%=data.name%>">
+			</div>
+			<div class="input-field col s12 m6">
+				<input type="text" name="title" placeholder="Title" value="<%=data.title%>">
+			</div>
+			<div class="input-field col s12 m6">
+				<input type="text" name="url" placeholder="URL" value="<%=data.url%>">
+			</div>
+			<div class="input-field col s12 m6">
+				<select class="browser-default" name="category">
+				<% if(data.category){ %>
+					<optgroup label="">
+						<option value="<%=data.category%>"><%=data.category%></option>
+					</optgroup>
+				<% } else { %>
+					<option value="">-- выбрать категорию --</option>
+				<% } %>
+				<optgroup label="">
+				<% categories.forEach(function(category){ %>
+					<option value="<%=category.name%>"><%=category.name%></option>
+				<% }); %>	
+				</optgroup>
+				</select>
+			</div>
+			<div class="input-field col s12">
+				<textarea name="description" placeholder="Description"><%=data.description%></textarea>
+			</div>
+			<div class="input-field col s12">
+				<textarea name="text" placeholder="Body"><%=data.text%></textarea>
+			</div>
+			<div class="input-field col s12 m9">
+				<input type="text" name="price" placeholder="Price" value="<%=data.price%>">
+			</div>
+			<div class="input-field col s12 m3 right-align">
+				<button type="submit" class="btn btn-orange">Save</button>
+				<a href="<%=data.id%>/del" class="btn red lighten-1">Delete</a>
+			</div>	
+		</form>
+	</div>
+</div>
