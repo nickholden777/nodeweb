@@ -1,5 +1,5 @@
 # NodeWeb
 CMS (NodeJS + MongoDB) - express 4
 
-<code>sdvsdvsdvs</code>
+In file <code>db.js</code> have to change url to your database <code>mongodb://localhost/cms</code>
 
