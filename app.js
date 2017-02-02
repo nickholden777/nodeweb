@@ -11,6 +11,7 @@ var db = require('./db');
 
 var app = express();
 
+app.disable('x-powered-by');
 app.use(bodyParser.urlencoded({extended: false}));
 app.engine('ejs', ejs);
 app.set('view engine', 'ejs');
@@ -30,10 +31,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/', front.pages);
-app.get('/:page', front.pages);
-
-
 /*=====================ADMIN========================*/
 
 app.get('/admin', routes.admin);
@@ -49,18 +46,9 @@ app.get('/panel/pages/:id', routes.panelPagesEdit);
 app.post('/panel/pages/:id', routes.panelPagesEditPost);
 app.get('/panel/pages/:id/del', routes.panelPagesDel);
 
-app.get('/panel/products', routes.products);
-app.get('/panel/products/new', routes.panelProductsNew);
-app.post('/panel/products/new', routes.panelProductsNewPost);
-app.get('/panel/products/:id', routes.panelProductsEdit);
-app.post('/panel/products/:id', routes.panelProductsEditPost);
-app.get('/panel/products/:id/del', routes.panelProductsDel);
+/*=====================FRONT========================*/
 
-app.get('/panel/categories', routes.categories);
-app.get('/panel/categories/new', routes.panelCategoriesNew);
-app.post('/panel/categories/new', routes.panelCategoriesNewPost);
-app.get('/panel/categories/:id', routes.panelCategoriesEdit);
-app.post('/panel/categories/:id', routes.panelCategoriesEditPost);
-app.get('/panel/categories/:id/del', routes.panelCategoriesDel);
+app.get('/', front.pages);
+app.get('/:page', front.pages);
 
 app.listen(3000);

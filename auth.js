@@ -6,7 +6,7 @@ passport.use(new LocalStrategy({
     	passwordField: 'password',
 	},
 	function(username, password, done){
-		if(username === 'admin' && password === '5429')
+		if(username === 'admin' && password === '0000')
 			return done(null, {username: 'admin'});
 		return done(null, false);
 	}

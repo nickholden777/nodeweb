@@ -11,6 +11,13 @@
 </head>
 <body>
 <%- partial('partials/header')%>
-<%- body -%>
+<div class="row">
+	<div class="col m3">
+		<%- partial('partials/left')%>
+	</div>
+	<div class="col m9">	
+		<%- body -%>
+	</div>	
+</div>
 </body>
 </html>
